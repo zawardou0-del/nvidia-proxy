@@ -48,6 +48,15 @@ app.get('/health', (req, res) => {
   });
 });
 
+app.get('/v1', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'NVIDIA NIM GLM-5.3 Proxy',
+    default_model: DEFAULT_MODEL,
+    endpoints: ['/v1/models', '/v1/chat/completions']
+  });
+});
+
 app.get('/v1/models', (req, res) => {
   res.json({
     object: 'list',
